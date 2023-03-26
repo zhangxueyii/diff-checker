@@ -33,7 +33,7 @@ function createWindow() {
         maximized,
         icon:           appIcon,
         minWidth:       700,
-        minHeight:      740,
+        minHeight:      540,
         webPreferences: {
             enableRemoteModule: true,
             contextIsolation:   false,
