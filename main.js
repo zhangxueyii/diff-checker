@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
+const { app, BrowserWindow, ipcMain, nativeTheme, globalShortcut} = require('electron');
 
 const StoreManager  = require('./assets/js/store.js');
 const MenuManager   = require('./assets/js/menu.js');
@@ -87,6 +87,12 @@ function createWindow() {
     mainWindow.on('closed', function() { mainWindow = null });
 }
 
-app.whenReady().then(createWindow);
+app.whenReady()
+    .then(() => {
+        globalShortcut.register('Alt+CommandOrControl+I', () => {
+            console.log('Electron loves global shortcuts!')
+        })
+    })
+    .then(createWindow);
 app.on('window-all-closed', function() { if (process.platform !== 'darwin') { app.quit(); } });
 app.on('activate', function() { if (mainWindow === null) { createWindow(); } });
