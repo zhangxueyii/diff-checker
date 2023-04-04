@@ -28,7 +28,7 @@ class MenuManager {
                 {
                     label:       'Quit',
                     role:        'quit',
-                    accelerator: 'CmdOrCtrl+Q'
+                    accelerator: 'Cmd+W'
                 }
             ]
         };
